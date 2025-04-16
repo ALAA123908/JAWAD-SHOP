@@ -359,28 +359,8 @@ function Dashboard() {
                       </Grid>
                     </Grid>
                   </Paper>
-                  color="primary"
-                  onClick={handleAddProduct}
-                  fullWidth
-                  sx={{ mt: 2 }}
-                >
-                  إضافة المنتج
-                </Button>
-                <Box sx={{ mt: 1 }}>
-                  <Typography variant="body2" color="text.secondary">
-                    السعر النهائي: {form.price} $
-                  </Typography>
                 </Box>
-                {error && <Alert severity="error">{error}</Alert>}
-                {imageError && <Alert severity="error">{imageError}</Alert>}
-              </Box>
-              {/* المنتجات المضافة */}
-              <Box mt={6}>
-                <Typography variant="h6" gutterBottom align="center">المنتجات المضافة</Typography>
-                <TextField
-                  label="بحث عن منتج بالاسم"
-                  variant="outlined"
-                  size="small"
+              ))}
                   fullWidth
                   sx={{ mb: 2 }}
                   value={searchTerm}
