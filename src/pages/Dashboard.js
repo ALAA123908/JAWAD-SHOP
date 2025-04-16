@@ -359,41 +359,6 @@ function Dashboard() {
                       </Grid>
                     </Grid>
                   </Paper>
-                  label="القسم"
-                  value={form.category}
-                  onChange={e => setForm({ ...form, category: e.target.value })}
-                  fullWidth
-                  margin="normal"
-                >
-                  {allCategories.map(cat => (
-                    <MenuItem key={cat} value={cat}>{cat}</MenuItem>
-                  ))}
-                </TextField>
-                <TextField
-                  label="اسم المنتج"
-                  value={form.name}
-                  onChange={e => setForm({ ...form, name: e.target.value })}
-                  fullWidth
-                  margin="normal"
-                />
-                <TextField
-                  label="السعر ($)"
-                  type="number"
-                  value={form.price}
-                  onChange={e => setForm({ ...form, price: e.target.value })}
-                  fullWidth
-                  margin="normal"
-                />
-                <Button
-                  variant="contained"
-                  component="label"
-                  color={form.image ? "success" : "secondary"}
-                >
-                  {form.image ? "تم اختيار صورة" : "رفع صورة المنتج"}
-                  <input hidden type="file" accept="image/*" onChange={handleImageChange} />
-                </Button>
-                <Button
-                  variant="contained"
                   color="primary"
                   onClick={handleAddProduct}
                   fullWidth
