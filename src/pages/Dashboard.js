@@ -359,12 +359,6 @@ function Dashboard() {
                       </Grid>
                     </Grid>
                   </Paper>
-      };
-
-      // حذف طلب
-      const [deleteSuccess, setDeleteSuccess] = useState(false);
-      const handleDeleteOrder = (idx) => {
-        const updated = [...orders];
         updated.splice(idx, 1);
         socket.emit('updateOrders', updated);
         setDeleteSuccess(true);
