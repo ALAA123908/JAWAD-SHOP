@@ -359,57 +359,6 @@ function Dashboard() {
                       </Grid>
                     </Grid>
                   </Paper>
-        updated.splice(idx, 1);
-        socket.emit('updateOrders', updated);
-        setDeleteSuccess(true);
-      };
-
-      const playNotification = () => {
-        const audio = new window.Audio('https://cdn.pixabay.com/audio/2022/07/26/audio_124bfa1c82.mp3'); // صوت قصير مجاني
-        audio.play();
-      };
-
-      const handleStatusChange = (orderIdx, newStatus) => {
-        const updatedOrders = [...orders];
-        updatedOrders[orderIdx].status = newStatus;
-        socket.emit('updateOrders', updatedOrders);
-        playNotification();
-      };
-
-      const handleDeleteOrderWithNotification = (orderIdx) => {
-        const updatedOrders = orders.filter((_, idx) => idx !== orderIdx);
-        socket.emit('updateOrders', updatedOrders);
-        playNotification();
-        setDeleteSuccess(true);
-      };
-
-      const handleAddNote = () => {
-        if (!newNote.trim()) return;
-        socket.emit('addNote', newNote);
-        setNewNote('');
-      };
-
-      const handleDeleteNote = (idx) => {
-        socket.emit('deleteNote', idx);
-      };
-
-      return (
-        <Container maxWidth="md" sx={{ mt: 10, mb: 6 }}>
-          <Typography variant="h4" align="center" gutterBottom>لوحة التحكم</Typography>
-          {/* سيتم تشغيل صوت عند الرد على طلب الزبون */}
-          {/* قسم تفعيل/تعطيل الأقسام */}
-          <Tabs value={tab} onChange={(e, v) => setTab(v)} centered sx={{ mb: 2 }}>
-            <Tab label="إدارة المنتجات" />
-            <Tab label="الطلبات" />
-            <Tab label="إعدادات" />
-            <Tab label="الملاحظات" />
-          </Tabs>
-          {tab === 0 && (
-            <Box>
-              <Typography variant="h5" gutterBottom align="center">إضافة منتج جديد</Typography>
-              <Box display="flex" flexDirection="column" gap={2}>
-                <TextField
-                  select
                   label="القسم"
                   value={form.category}
                   onChange={e => setForm({ ...form, category: e.target.value })}
